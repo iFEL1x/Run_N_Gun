@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (8)
+      value: spawn (5)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -1261,7 +1261,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (12)
+      value: spawn (7)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -1401,7 +1401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (11)
+      value: spawn (9)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -2831,7 +2831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (17)
+      value: spawn (4)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -3868,7 +3868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (16)
+      value: spawn (3)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -4522,7 +4522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622663, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: _speed
-      value: -4
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622663, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: _nameObjectCollision
@@ -4530,7 +4530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (3)
+      value: spawn (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -5930,7 +5930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (13)
+      value: spawn (6)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -6804,7 +6804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_Name
-      value: spawn (10)
+      value: spawn (8)
       objectReference: {fileID: 0}
     - target: {fileID: 5030677878865622664, guid: 74e3d83afa95ffe47a24effe66bdd874, type: 3}
       propertyPath: m_IsActive
@@ -6972,6 +6972,10 @@ PrefabInstance:
     - target: {fileID: 728503355, guid: 35af512c01b3a634cb907136abfc2ab4, type: 3}
       propertyPath: speed
       value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 728503355, guid: 35af512c01b3a634cb907136abfc2ab4, type: 3}
+      propertyPath: animation
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 728503357, guid: 35af512c01b3a634cb907136abfc2ab4, type: 3}
       propertyPath: _timeCooldown

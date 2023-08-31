@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Unitls
 {
@@ -15,7 +14,6 @@ namespace Game.Unitls
         private float _secondsPerFrame;
         private int _currentFrame;
         private float _nextFrameTime;
-        private bool _isPlaying = true;
         
         private void Start()
         {
@@ -28,7 +26,6 @@ namespace Game.Unitls
         private void StartAnimation()
         {
             _nextFrameTime = Time.time;
-            enabled = _isPlaying = true;
             _currentFrame = 0;
         }
         

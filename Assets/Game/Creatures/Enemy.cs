@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Spine.Unity;
 using UnityEngine;
 
 namespace Game.Creatures
@@ -8,7 +7,6 @@ namespace Game.Creatures
     {
         [SerializeField] private GameObject _tomb;
         [SerializeField] private GameObject _explosion;
-        private SkeletonAnimation _animation;
         private Player _player;
         private Transform _parent;
         private Vector3 _tombLocalPosition;
@@ -36,11 +34,22 @@ namespace Game.Creatures
 
         private void OnMouseDown()
         {
+            Debug.Log("Click..");
             if(_player.shootReady.IsReady)
                 StartCoroutine(PlayerShoot());
             else _player.ShootFail();
         }
-        
+
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                Debug.Log("Collision");
+                speed = 0f;
+                animation.AnimationState.SetAnimation(0, "win", true);
+            }
+        }
+
         private IEnumerator PlayerShoot()
         {
             StartCoroutine(_player.Shoot());
