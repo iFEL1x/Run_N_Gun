@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game.Components
 {
-    public class RotationObjectComponent : MonoBehaviour
+    public class RotationObjectComponent : MonoBehaviour, IActivatable
     {
         [Tooltip("If value is set 0, the object will rotate infinitely")]
         [SerializeField] private float _timerDuration;
@@ -14,6 +14,11 @@ namespace Game.Components
             if(_timerDuration < Time.time && _timerDuration != 0f) return;
             
             transform.Rotate(Vector3.forward * -(_multiple * Time.deltaTime));
+        }
+
+        public void Activate()
+        {
+            this.enabled = true;
         }
     }
 }

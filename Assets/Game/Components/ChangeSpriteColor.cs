@@ -2,7 +2,7 @@
 
 namespace Game.Components
 {
-    public class ChangeSpriteColor : MonoBehaviour
+    public class ChangeSpriteColor : MonoBehaviour, IActivatable
     {
         [SerializeField] private float _timeLeft;
         [SerializeField] private Color _newColor;
@@ -16,6 +16,11 @@ namespace Game.Components
         private void Update()
         {
             _spriteRender.color = Color.Lerp(_spriteRender.color, _newColor, _timeLeft * Time.deltaTime);
+        }
+
+        public void Activate()
+        {
+            this.enabled = true;
         }
     }
 }
