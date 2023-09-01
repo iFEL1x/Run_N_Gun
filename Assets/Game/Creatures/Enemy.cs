@@ -34,7 +34,6 @@ namespace Game.Creatures
 
         private void OnMouseDown()
         {
-            Debug.Log("Click..");
             if(_player.shootReady.IsReady)
                 StartCoroutine(PlayerShoot());
             else _player.ShootFail();
@@ -44,7 +43,6 @@ namespace Game.Creatures
         {
             if (collider.CompareTag("Player"))
             {
-                Debug.Log("Collision");
                 speed = 0f;
                 animation.AnimationState.SetAnimation(0, "win", true);
             }

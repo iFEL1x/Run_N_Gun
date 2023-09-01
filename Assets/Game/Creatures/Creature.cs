@@ -6,8 +6,7 @@ namespace Game.Creatures
     public class Creature : MonoBehaviour
     {
         public float speed;
-        [SerializeField] protected new SkeletonAnimation animation;
-        private Rigidbody2D _rigidbody;
+        protected new SkeletonAnimation animation;
 
         private void Awake()
         {

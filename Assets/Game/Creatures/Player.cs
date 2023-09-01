@@ -2,6 +2,8 @@
 using UnityEngine;
 using Game.Unitls;
 using Spine;
+using UnityEngine.UI;
+using Animation = UnityEngine.Animation;
 
 namespace Game.Creatures
 {
@@ -9,6 +11,7 @@ namespace Game.Creatures
     {
         [HideInInspector] public Cooldown shootReady;
         [SerializeField] private ParticleSystem _shootParticle;
+        [SerializeField] private Animator _buttonRestart;
         private string _currentAnimation;
         private float _defaultSpeed;
 
@@ -27,6 +30,8 @@ namespace Game.Creatures
                 animation.AnimationState.SetAnimation(0, "loose", false);
                 GetComponent<BoxCollider2D>().enabled = false;
                 this.enabled = false;
+                
+                _buttonRestart.SetTrigger("restart");
             }
             else if (collider.CompareTag("Finish"))
             {
@@ -39,7 +44,7 @@ namespace Game.Creatures
         {
             if (_currentAnimation != "shoot")
             {
-                SetAnimationShoot( 0f, "shoot");
+                SetAnimationShoot("shoot");
                 shootReady.Reset();
                 
                 yield return new WaitForSeconds(0.35f);
@@ -50,22 +55,24 @@ namespace Game.Creatures
         public void ShootFail()
         {
             if (_currentAnimation == "walk")
-                SetAnimationShoot( 0f, "shoot_fail");
+                SetAnimationShoot("shoot_fail");
         }
         
-        private void SetAnimationShoot(float playerSpeed, string animationName)
+        private void SetAnimationShoot(string animationName)
         {
-            speed = playerSpeed;
+            speed = 0f;
+
+            var currentTrack = animation.AnimationState.SetAnimation(0, animationName, false);
             _currentAnimation = animationName;
             
-            var currentTrack = animation.AnimationState.SetAnimation(0, animationName, false);
-            currentTrack.Complete += SetDefaultAnimation;
+            currentTrack.Complete += SetAnimationDefault;
         }
 
-        private void SetDefaultAnimation(TrackEntry trackEntry)
+        private void SetAnimationDefault(TrackEntry trackEntry)
         {
             animation.AnimationState.SetAnimation(0, "walk", true);
             _currentAnimation = "walk";
+            
             speed = _defaultSpeed;
         }
     }

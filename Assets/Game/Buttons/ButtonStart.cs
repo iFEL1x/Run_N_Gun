@@ -3,7 +3,7 @@ using UnityEngine;
 using Game.Creatures;
 using Spine.Unity;
 
-namespace Game
+namespace Game.Buttons
 {
     public class ButtonStart : MonoBehaviour
     {
