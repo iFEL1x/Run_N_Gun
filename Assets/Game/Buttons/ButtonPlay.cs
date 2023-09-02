@@ -1,21 +1,23 @@
-﻿using Game.Components;
+﻿using System.Collections;
+using Game.Components;
 using UnityEngine;
 using Game.Creatures;
 using Spine.Unity;
 
 namespace Game.Buttons
 {
-    public class ButtonStart : MonoBehaviour
+    public class ButtonPlay : MonoBehaviour
     {
         [SerializeField] private ChangeSpriteColor[] _changeColorArr;
         [SerializeField] private ParalaxEffectComponent[] _paralaxArr;
         [SerializeField] private RotationObjectComponent[] _rotationArr;
         private Player _player;
         private SkeletonAnimation _playerAnimation;
-        private bool _isPlay;
+        private Animator _animation;
 
         private void Awake()
         {
+            _animation = GetComponent<Animator>();
             _player = FindObjectOfType<Player>();
             _playerAnimation = _player.GetComponentInChildren<SkeletonAnimation>();
             _playerAnimation.AnimationState.SetAnimation(0, "idle", true);
@@ -23,15 +25,14 @@ namespace Game.Buttons
 
         public void StartGame()
         {
-            _isPlay = true;
             _player.enabled = true;
             _playerAnimation.AnimationState.SetAnimation(0, "walk", true);
 
             EnableComponent(_changeColorArr);
             EnableComponent(_paralaxArr);
             EnableComponent(_rotationArr);
-            
-            gameObject.SetActive(false);
+
+            StartCoroutine(ButtonDisabled());
         }
 
         private void EnableComponent<T>(T[] components) where T : MonoBehaviour, IActivatable
@@ -40,6 +41,13 @@ namespace Game.Buttons
             {
                 component.Activate();
             }
+        }
+
+        private IEnumerator ButtonDisabled()
+        {
+            _animation.SetTrigger("disappear");
+            yield return new WaitForSeconds(2f);
+            gameObject.SetActive(false);
         }
     }
 }

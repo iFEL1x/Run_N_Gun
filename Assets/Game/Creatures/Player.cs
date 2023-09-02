@@ -2,8 +2,6 @@
 using UnityEngine;
 using Game.Unitls;
 using Spine;
-using UnityEngine.UI;
-using Animation = UnityEngine.Animation;
 
 namespace Game.Creatures
 {
@@ -12,13 +10,14 @@ namespace Game.Creatures
         [HideInInspector] public Cooldown shootReady;
         [SerializeField] private ParticleSystem _shootParticle;
         [SerializeField] private Animator _buttonRestart;
-        private string _currentAnimation;
+        [SerializeField] private Animator _buttonEnd;
+        private string _currentNameAnimation;
         private float _defaultSpeed;
 
         private void Start()
         {
             shootReady = GetComponent<Cooldown>();
-            _currentAnimation = animation.AnimationState.GetCurrent(0).Animation.Name;
+            _currentNameAnimation = animation.AnimationState.GetCurrent(0).Animation.Name;
             _defaultSpeed = speed;
         }
 
@@ -29,20 +28,19 @@ namespace Game.Creatures
                 speed = 0;
                 animation.AnimationState.SetAnimation(0, "loose", false);
                 GetComponent<BoxCollider2D>().enabled = false;
-                this.enabled = false;
+                enabled = false;
                 
-                _buttonRestart.SetTrigger("restart");
+                _buttonRestart.SetTrigger("enter");
             }
             else if (collider.CompareTag("Finish"))
             {
-                speed *= 1.5f;
-                animation.AnimationState.SetAnimation(0, "run", true);
+                StartCoroutine(Finish());
             }
         }
-        
+
         public IEnumerator Shoot()
         {
-            if (_currentAnimation != "shoot")
+            if (_currentNameAnimation != "shoot")
             {
                 SetAnimationShoot("shoot");
                 shootReady.Reset();
@@ -54,7 +52,7 @@ namespace Game.Creatures
 
         public void ShootFail()
         {
-            if (_currentAnimation == "walk")
+            if (_currentNameAnimation == "walk")
                 SetAnimationShoot("shoot_fail");
         }
         
@@ -63,17 +61,28 @@ namespace Game.Creatures
             speed = 0f;
 
             var currentTrack = animation.AnimationState.SetAnimation(0, animationName, false);
-            _currentAnimation = animationName;
+            _currentNameAnimation = animationName;
             
-            currentTrack.Complete += SetAnimationDefault;
+            currentTrack.Complete += SetAnimationWalk;
         }
 
-        private void SetAnimationDefault(TrackEntry trackEntry)
+        private void SetAnimationWalk(TrackEntry trackEntry)
         {
             animation.AnimationState.SetAnimation(0, "walk", true);
-            _currentAnimation = "walk";
+            _currentNameAnimation = "walk";
             
             speed = _defaultSpeed;
+        }
+        
+        private IEnumerator Finish()
+        {
+            speed *= 2f;
+            animation.AnimationState.SetAnimation(0, "run", true);
+            
+            yield return new WaitForSeconds(5f);
+            
+            _buttonEnd.SetTrigger("enter");
+            gameObject.SetActive(false);
         }
     }
 }
