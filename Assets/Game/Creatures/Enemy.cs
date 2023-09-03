@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Game.Creatures
@@ -11,29 +12,18 @@ namespace Game.Creatures
         private Transform _parent;
         private Vector3 _tombLocalPosition;
         private Vector3 _explosionLocalPosition;
-        private static bool _playerLoos;
+        private static Action player_loos;
 
-        private bool PlayerLoos
-        {
-            set {
-                if (_playerLoos != value)
-                {
-                    _playerLoos = value;
-
-                    if (_playerLoos)
-                        PlayerIsLoose();
-                }
-            }
-        }
-        
         private void Start()
         {
             _player = FindObjectOfType<Player>();
             _parent = transform.parent;
             _tombLocalPosition = _tomb.transform.localPosition;
             _explosionLocalPosition = _explosion.transform.localPosition;
-        }
 
+            player_loos += StopEnemy;
+        }
+        
         private void OnEnable()
         {
             if (_tomb.activeInHierarchy)
@@ -57,7 +47,7 @@ namespace Game.Creatures
         {
             if (collider.CompareTag("Player"))
             {
-                PlayerLoos = true;
+                player_loos();
             }
         }
 
@@ -73,8 +63,8 @@ namespace Game.Creatures
             
             gameObject.SetActive(false);
         }
-        
-        private void PlayerIsLoose()
+
+        private void StopEnemy()
         {
             speed = 0f;
             animation.AnimationState.SetAnimation(0, "win", true);
