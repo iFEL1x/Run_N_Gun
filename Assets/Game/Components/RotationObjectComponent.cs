@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Game.Interface;
 
 namespace Game.Components
 {

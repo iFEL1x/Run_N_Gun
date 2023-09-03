@@ -6,11 +6,12 @@ namespace Game.Creatures
     public class Creature : MonoBehaviour
     {
         public float speed;
-        protected new SkeletonAnimation animation;
+        [SerializeField] protected new SkeletonAnimation animation;
 
         private void Awake()
         {
-            animation = GetComponentInChildren<SkeletonAnimation>();
+            if(animation == null)
+                animation = GetComponentInChildren<SkeletonAnimation>();
         }
 
         protected virtual void Update()

@@ -36,6 +36,11 @@ namespace Game.Creatures
             }
         }
 
+        private void OnDestroy()
+        {
+            player_loos -= StopEnemy;
+        }
+
         private void OnMouseDown()
         {
             if(_player.shootReady.IsReady)
@@ -66,9 +71,12 @@ namespace Game.Creatures
 
         private void StopEnemy()
         {
-            speed = 0f;
-            animation.AnimationState.SetAnimation(0, "win", true);
-            GetComponent<CircleCollider2D>().enabled = false;
+            if (gameObject.activeInHierarchy)
+            {
+                speed = 0f;
+                animation.AnimationState.SetAnimation(0, "win", true);
+                GetComponent<CircleCollider2D>().enabled = false;
+            }
         }
     }
 }

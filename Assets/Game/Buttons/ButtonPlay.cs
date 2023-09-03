@@ -1,15 +1,15 @@
 ﻿using System.Collections;
-using Game.Components;
 using UnityEngine;
-using Game.Creatures;
 using Spine.Unity;
+using Game.Creatures;
+using Game.Interface;
+using Game.Components;
 
 namespace Game.Buttons
 {
     public class ButtonPlay : MonoBehaviour
     {
         [SerializeField] private ChangeSpriteColor[] _changeColorArr;
-        [SerializeField] private ParalaxEffectComponent[] _paralaxArr;
         [SerializeField] private RotationObjectComponent[] _rotationArr;
         private Player _player;
         private SkeletonAnimation _playerAnimation;
@@ -29,7 +29,6 @@ namespace Game.Buttons
             _playerAnimation.AnimationState.SetAnimation(0, "walk", true);
 
             EnableComponent(_changeColorArr);
-            EnableComponent(_paralaxArr);
             EnableComponent(_rotationArr);
 
             StartCoroutine(ButtonDisabled());

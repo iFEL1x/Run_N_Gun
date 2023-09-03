@@ -3285,11 +3285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _changeColorArr:
   - {fileID: 1197519962}
-  _paralaxArr:
-  - {fileID: 1623735858}
-  - {fileID: 1185991244}
-  - {fileID: 1890313246}
-  - {fileID: 1161184010}
   _rotationArr:
   - {fileID: 1623735857}
 --- !u!114 &1000955717
@@ -3888,7 +3883,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161184008}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a868babc0d4b65987dd2f62e9adc06, type: 3}
   m_Name: 
@@ -4022,7 +4017,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185991242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a868babc0d4b65987dd2f62e9adc06, type: 3}
   m_Name: 
@@ -5618,7 +5613,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623735855}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a868babc0d4b65987dd2f62e9adc06, type: 3}
   m_Name: 
@@ -6447,7 +6442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890313244}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a868babc0d4b65987dd2f62e9adc06, type: 3}
   m_Name: 

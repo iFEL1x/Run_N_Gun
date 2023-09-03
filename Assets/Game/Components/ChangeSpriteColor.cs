@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Game.Interface;
+
 
 namespace Game.Components
 {

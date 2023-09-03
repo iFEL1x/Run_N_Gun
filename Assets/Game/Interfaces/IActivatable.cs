@@ -1,4 +1,4 @@
-﻿namespace Game
+﻿namespace Game.Interface
 {
     public interface IActivatable
     {
