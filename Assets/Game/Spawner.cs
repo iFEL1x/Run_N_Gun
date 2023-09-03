@@ -7,6 +7,7 @@ namespace Game
     {
         [SerializeField] private string _nameObjectCollision;
         [SerializeField] private float _positionY;
+        [SerializeField] private float _positionZ;
         [SerializeField] [Range(-1, -10)] private float _speed;
         private Transform _parent;
         private Vector3 _transform;
@@ -18,6 +19,7 @@ namespace Game
             _parent = transform.parent;
             _transform = transform.position;
             _transform.y = _positionY;
+            _transform.z = _positionZ;
 
             if (_speed >= 0)
                 _speed = -3;

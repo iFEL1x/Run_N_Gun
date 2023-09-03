@@ -11,6 +11,20 @@ namespace Game.Creatures
         private Transform _parent;
         private Vector3 _tombLocalPosition;
         private Vector3 _explosionLocalPosition;
+        private static bool _playerLoos;
+
+        private bool PlayerLoos
+        {
+            set {
+                if (_playerLoos != value)
+                {
+                    _playerLoos = value;
+
+                    if (_playerLoos)
+                        PlayerIsLoose();
+                }
+            }
+        }
         
         private void Start()
         {
@@ -43,8 +57,7 @@ namespace Game.Creatures
         {
             if (collider.CompareTag("Player"))
             {
-                speed = 0f;
-                animation.AnimationState.SetAnimation(0, "win", true);
+                PlayerLoos = true;
             }
         }
 
@@ -59,6 +72,13 @@ namespace Game.Creatures
             _explosion.SetActive(true);
             
             gameObject.SetActive(false);
+        }
+        
+        private void PlayerIsLoose()
+        {
+            speed = 0f;
+            animation.AnimationState.SetAnimation(0, "win", true);
+            GetComponent<CircleCollider2D>().enabled = false;
         }
     }
 }

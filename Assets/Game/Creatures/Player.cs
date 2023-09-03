@@ -25,12 +25,12 @@ namespace Game.Creatures
         {
             if (collider.CompareTag("Enemy"))
             {
+                GetComponent<BoxCollider2D>().enabled = false;
                 speed = 0;
                 animation.AnimationState.SetAnimation(0, "loose", false);
-                GetComponent<BoxCollider2D>().enabled = false;
-                enabled = false;
                 
                 _buttonRestart.SetTrigger("enter");
+                enabled = false;
             }
             else if (collider.CompareTag("Finish"))
             {

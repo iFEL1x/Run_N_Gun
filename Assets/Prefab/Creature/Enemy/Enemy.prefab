@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  animation: {fileID: 6395504156838312009}
   _tomb: {fileID: 4847768885855581627}
   _explosion: {fileID: 7749916558278705061}
 --- !u!50 &4685134666888733455
