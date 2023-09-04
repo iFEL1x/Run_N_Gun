@@ -10,6 +10,7 @@ namespace Game.Creatures
         [HideInInspector] public Cooldown shootReady;
         [SerializeField] private ParticleSystem _shootParticle;
         [SerializeField] private Animator _buttonRestart;
+        [SerializeField] private GameObject _menu;
         [SerializeField] private Animator _buttonEnd;
         private string _currentNameAnimation;
         private float _defaultSpeed;
@@ -30,6 +31,7 @@ namespace Game.Creatures
                 animation.AnimationState.SetAnimation(0, "loose", false);
                 
                 _buttonRestart.SetTrigger("enter");
+                _menu.SetActive(false);
                 enabled = false;
             }
             else if (collider.CompareTag("Finish"))
