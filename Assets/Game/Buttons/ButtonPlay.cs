@@ -9,6 +9,7 @@ namespace Game.Buttons
 {
     public class ButtonPlay : MonoBehaviour
     {
+        [SerializeField] private GameObject _menu;
         [SerializeField] private ChangeSpriteColor[] _changeColorArr;
         [SerializeField] private RotationObjectComponent[] _rotationArr;
         private Player _player;
@@ -26,6 +27,7 @@ namespace Game.Buttons
         public void StartGame()
         {
             _player.enabled = true;
+            _menu.SetActive(true);
             _playerAnimation.AnimationState.SetAnimation(0, "walk", true);
 
             EnableComponent(_changeColorArr);
