@@ -5,7 +5,7 @@ namespace Game.Buttons
 {
     public class ButtonRestart : MonoBehaviour
     {
-        public void Reload()
+        public void Restart()
         {
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
