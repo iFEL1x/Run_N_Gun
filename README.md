@@ -1,4 +1,4 @@
-# <p align="center"> Space-Invaders</p>
+# <p align="center"> Run-N-Gun</p>
 
 <div align="Center">
     <img src = https://github.com/iFEL1x/iFEL1x/blob/main/Resources/Screenshots/Screen(Run-N-Gun).png width="600">
